@@ -35,25 +35,20 @@
                         'fade-in-up': 'fadeInUp 1s ease-out forwards',
                         'heart-float': 'heartFloat 3s ease-out forwards',
                         'spin-slow': 'spin 8s linear infinite',
-                        // NUEVA ANIMACIÓN TIPO PELÍCULA
                         'movie-in': 'movieEntrance 1.6s cubic-bezier(0.23, 1, 0.32, 1) forwards',
+                        'slide-in-right': 'slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
                     },
                     keyframes: {
                         grandEntrance: { '0%': { opacity: '0', transform: 'scale(1.5) translateY(-30px) rotateX(15deg)', filter: 'blur(15px)' }, '100%': { opacity: '1', transform: 'scale(1) translateY(0) rotateX(0deg)', filter: 'blur(0px)' } },
                         fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
                         heartFloat: { '0%': { opacity: '0', transform: 'translate(0, 0) scale(0)' }, '20%': { opacity: '1', transform: 'translate(var(--tx), var(--ty)) scale(1)' }, '100%': { opacity: '0', transform: 'translate(var(--end-tx), var(--end-ty)) scale(0.5)' } },
-                        // KEYFRAMES PARA EL EFECTO DE CINE
                         movieEntrance: {
-                            '0%': { 
-                                opacity: '0', 
-                                transform: 'translateX(100%) scale(2.5) rotate(15deg)', 
-                                filter: 'blur(12px)' 
-                            },
-                            '100%': { 
-                                opacity: '1', 
-                                transform: 'translateX(0) scale(1) rotate(-2deg)', 
-                                filter: 'blur(0px)' 
-                            }
+                            '0%': { opacity: '0', transform: 'translateX(100%) scale(2.5) rotate(15deg)', filter: 'blur(12px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0) scale(1) rotate(-2deg)', filter: 'blur(0px)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(150px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
                         }
                     }
                 }
@@ -334,8 +329,8 @@
                     <div class="polaroid-caption">"en toda circunstancia"</div>
                 </div>
                 
-                <div class="polaroid-item opacity-0 text-center mt-[-40px] md:mt-[-80px] select-none">
-                    <p class="font-script text-4xl md:text-6xl text-wedding-olive drop-shadow-sm">
+                <div class="polaroid-item opacity-0 text-center mt-12 md:mt-24 select-none py-4">
+                    <p class="font-script text-5xl md:text-7xl text-wedding-olive drop-shadow-sm">
                         1 Corintios 13:7
                     </p>
                 </div>
@@ -350,7 +345,7 @@
                     <span class="font-script text-6xl md:text-[9rem] text-wedding-olive leading-none w-full text-center">Guarda el día</span>
                    
                     <div class="flex items-center justify-center -mt-2 md:-mt-6">
-                        <span class="font-script text-[6rem] md:text-[10rem] text-wedding-olive leading-none select-none transform -translate-y-1 -translate-x-4 md:-translate-x-12 opacity-95">21</span>
+                        <span class="font-script text-[6rem] md:text-[10rem] text-wedding-olive select-none transform -translate-y-1 -translate-x-4 md:-translate-x-12 opacity-95 px-4">21</span>
                         
                         <div class="flex flex-col items-start ml-3 md:ml-5 border-l border-wedding-olive/20 pl-4 md:pl-6 text-left py-1">
                             <span class="font-serif text-xl md:text-4xl text-wedding-text tracking-widest uppercase leading-tight">de Febrero</span>
@@ -1014,7 +1009,7 @@
                         if(entry.target.classList.contains('polaroid-card')) {
                             entry.target.classList.add('animate-polaroid-in');
                         } else {
-                            entry.target.classList.add('animate-fade-in'); 
+                            entry.target.classList.add('animate-slide-in-right'); 
                         }
                         polaroidObserver.unobserve(entry.target);
                     }
